@@ -4,13 +4,13 @@
 
 int main()
 {
-    struct sockaddr_in serverAddress;
-    struct sockaddr_in clientAddress;
+    int serverSocket; 
+    struct sockaddr_in serverAddress, clientAddress;
     socklen_t clientLength = sizeof(clientAddress);
     char buffer[1024]; // Declare a character array (buffer) to store data sent and received.
 
-    // Create a socket.
-    int serverSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    // // Create socket using IPv4 address and UDP protocol
+    serverSocket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
     // Prepare server address.
     memset(&serverAddress, 0, sizeof(serverAddress));
